@@ -1,0 +1,1 @@
+char* parseData(char* fileInput, int n);

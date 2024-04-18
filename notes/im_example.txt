@@ -1,0 +1,12 @@
+instructions
+
+# Add two numbers together
+ALLOC [REG_1] AS [1]
+ALLOC [REG_2] AS [2]
+
+ALLOC [REG_3] AS [REG_1 + REG_2]
+
+# Make sure to free data!
+FREE [REG_1]
+FREE [REG_2]
+FREE [REG_3]

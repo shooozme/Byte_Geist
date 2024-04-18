@@ -1,0 +1,7 @@
+void ALLOCATE() {
+
+}
+
+void DELETE() {
+
+}
