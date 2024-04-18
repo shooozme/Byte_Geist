@@ -1,0 +1,29 @@
+byte_geist
+
+we start with file A (".im" instruction manifest)
+file A is processed by our script line-by-line, sequentially
+
+".im" file magic key:
+CONSTANT "byte_geist"
+
+example of ".im" file
+
+```
+byte_geist
+------------
+
+ALLOCATE [REG_1] AS [123]
+ALLOCATE [REG_2] AS [321]
+
+ALLOCATE [REG_3] AS [REG_1+REG_2]
+
+DELETE [REG_1]
+DELETE [REG_2]
+DELETE [REG_3]
+```
+
+1. Determine a number of instructions. There are 255 instructions.
+2. Have a way to initialize variables.
+    1. Number literals are always 4-bytes
+    2. Alphabet characters without quotations are identifiers
+    3. Anything inside quotations are string literas
