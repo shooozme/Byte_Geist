@@ -2,6 +2,7 @@
     "files.associations": {
         "token.h": "c",
         "file.h": "c",
-        "registers.h": "c"
+        "registers.h": "c",
+        "stdio.h": "c"
     }
 }

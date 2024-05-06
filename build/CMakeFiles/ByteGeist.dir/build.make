@@ -92,6 +92,7 @@ ByteGeist_EXTERNAL_OBJECTS =
 
 ByteGeist: CMakeFiles/ByteGeist.dir/src/interpreter.c.o
 ByteGeist: CMakeFiles/ByteGeist.dir/build.make
+ByteGeist: extern/log/libextern.a
 ByteGeist: src/util/libutil.a
 ByteGeist: src/commands/libcommands.a
 ByteGeist: src/parser/libparser.a

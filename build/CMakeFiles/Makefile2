@@ -64,12 +64,14 @@ CMAKE_BINARY_DIR = /home/jay/Projects/Byte_Geist/build
 
 # The main recursive "all" target.
 all: CMakeFiles/ByteGeist.dir/all
+all: extern/log/all
 all: src/commands/all
 all: src/parser/all
 all: src/util/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
+preinstall: extern/log/preinstall
 preinstall: src/commands/preinstall
 preinstall: src/parser/preinstall
 preinstall: src/util/preinstall
@@ -77,10 +79,26 @@ preinstall: src/util/preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/ByteGeist.dir/clean
+clean: extern/log/clean
 clean: src/commands/clean
 clean: src/parser/clean
 clean: src/util/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory extern/log
+
+# Recursive "all" directory target.
+extern/log/all: extern/log/CMakeFiles/extern.dir/all
+.PHONY : extern/log/all
+
+# Recursive "preinstall" directory target.
+extern/log/preinstall:
+.PHONY : extern/log/preinstall
+
+# Recursive "clean" directory target.
+extern/log/clean: extern/log/CMakeFiles/extern.dir/clean
+.PHONY : extern/log/clean
 
 #=============================================================================
 # Directory level rules for directory src/commands
@@ -131,6 +149,7 @@ src/util/clean: src/util/CMakeFiles/util.dir/clean
 # Target rules for target CMakeFiles/ByteGeist.dir
 
 # All Build rule for target.
+CMakeFiles/ByteGeist.dir/all: extern/log/CMakeFiles/extern.dir/all
 CMakeFiles/ByteGeist.dir/all: src/commands/CMakeFiles/commands.dir/all
 CMakeFiles/ByteGeist.dir/all: src/parser/CMakeFiles/parser.dir/all
 CMakeFiles/ByteGeist.dir/all: src/util/CMakeFiles/util.dir/all
@@ -141,7 +160,7 @@ CMakeFiles/ByteGeist.dir/all: src/util/CMakeFiles/util.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ByteGeist.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jay/Projects/Byte_Geist/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jay/Projects/Byte_Geist/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ByteGeist.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jay/Projects/Byte_Geist/build/CMakeFiles 0
 .PHONY : CMakeFiles/ByteGeist.dir/rule
@@ -154,6 +173,32 @@ ByteGeist: CMakeFiles/ByteGeist.dir/rule
 CMakeFiles/ByteGeist.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ByteGeist.dir/build.make CMakeFiles/ByteGeist.dir/clean
 .PHONY : CMakeFiles/ByteGeist.dir/clean
+
+#=============================================================================
+# Target rules for target extern/log/CMakeFiles/extern.dir
+
+# All Build rule for target.
+extern/log/CMakeFiles/extern.dir/all:
+	$(MAKE) $(MAKESILENT) -f extern/log/CMakeFiles/extern.dir/build.make extern/log/CMakeFiles/extern.dir/depend
+	$(MAKE) $(MAKESILENT) -f extern/log/CMakeFiles/extern.dir/build.make extern/log/CMakeFiles/extern.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jay/Projects/Byte_Geist/build/CMakeFiles --progress-num=6,7 "Built target extern"
+.PHONY : extern/log/CMakeFiles/extern.dir/all
+
+# Build rule for subdir invocation for target.
+extern/log/CMakeFiles/extern.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jay/Projects/Byte_Geist/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extern/log/CMakeFiles/extern.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jay/Projects/Byte_Geist/build/CMakeFiles 0
+.PHONY : extern/log/CMakeFiles/extern.dir/rule
+
+# Convenience name for target.
+extern: extern/log/CMakeFiles/extern.dir/rule
+.PHONY : extern
+
+# clean rule for target.
+extern/log/CMakeFiles/extern.dir/clean:
+	$(MAKE) $(MAKESILENT) -f extern/log/CMakeFiles/extern.dir/build.make extern/log/CMakeFiles/extern.dir/clean
+.PHONY : extern/log/CMakeFiles/extern.dir/clean
 
 #=============================================================================
 # Target rules for target src/commands/CMakeFiles/commands.dir
@@ -188,7 +233,7 @@ src/commands/CMakeFiles/commands.dir/clean:
 src/parser/CMakeFiles/parser.dir/all: src/commands/CMakeFiles/commands.dir/all
 	$(MAKE) $(MAKESILENT) -f src/parser/CMakeFiles/parser.dir/build.make src/parser/CMakeFiles/parser.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/parser/CMakeFiles/parser.dir/build.make src/parser/CMakeFiles/parser.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jay/Projects/Byte_Geist/build/CMakeFiles --progress-num=6,7,8 "Built target parser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jay/Projects/Byte_Geist/build/CMakeFiles --progress-num=8,9,10 "Built target parser"
 .PHONY : src/parser/CMakeFiles/parser.dir/all
 
 # Build rule for subdir invocation for target.
@@ -214,7 +259,7 @@ src/parser/CMakeFiles/parser.dir/clean:
 src/util/CMakeFiles/util.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jay/Projects/Byte_Geist/build/CMakeFiles --progress-num=9,10 "Built target util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jay/Projects/Byte_Geist/build/CMakeFiles --progress-num=11,12 "Built target util"
 .PHONY : src/util/CMakeFiles/util.dir/all
 
 # Build rule for subdir invocation for target.

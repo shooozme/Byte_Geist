@@ -1,6 +1,9 @@
 /home/jay/Projects/Byte_Geist/build/CMakeFiles/ByteGeist.dir
 /home/jay/Projects/Byte_Geist/build/CMakeFiles/edit_cache.dir
 /home/jay/Projects/Byte_Geist/build/CMakeFiles/rebuild_cache.dir
+/home/jay/Projects/Byte_Geist/build/extern/log/CMakeFiles/extern.dir
+/home/jay/Projects/Byte_Geist/build/extern/log/CMakeFiles/edit_cache.dir
+/home/jay/Projects/Byte_Geist/build/extern/log/CMakeFiles/rebuild_cache.dir
 /home/jay/Projects/Byte_Geist/build/src/commands/CMakeFiles/commands.dir
 /home/jay/Projects/Byte_Geist/build/src/commands/CMakeFiles/edit_cache.dir
 /home/jay/Projects/Byte_Geist/build/src/commands/CMakeFiles/rebuild_cache.dir

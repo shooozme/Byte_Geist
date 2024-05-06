@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jay/Projects/Byte_Geist/build/CMakeFiles /home/jay/Projects/Byte_Geist/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /home/jay/Projects/Byte_Geist/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/jay/Projects/Byte_Geist/build/CMakeFiles /home/jay/Projects/Byte_Geist/build/extern/log//CMakeFiles/progress.marks
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extern/log/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jay/Projects/Byte_Geist/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extern/log/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,107 +103,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extern/log/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extern/log/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/jay/Projects/Byte_Geist/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named ByteGeist
+# Convenience name for target.
+extern/log/CMakeFiles/extern.dir/rule:
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extern/log/CMakeFiles/extern.dir/rule
+.PHONY : extern/log/CMakeFiles/extern.dir/rule
 
-# Build rule for target.
-ByteGeist: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ByteGeist
-.PHONY : ByteGeist
-
-# fast build rule for target.
-ByteGeist/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ByteGeist.dir/build.make CMakeFiles/ByteGeist.dir/build
-.PHONY : ByteGeist/fast
-
-#=============================================================================
-# Target rules for targets named extern
-
-# Build rule for target.
-extern: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extern
+# Convenience name for target.
+extern: extern/log/CMakeFiles/extern.dir/rule
 .PHONY : extern
 
 # fast build rule for target.
 extern/fast:
-	$(MAKE) $(MAKESILENT) -f extern/log/CMakeFiles/extern.dir/build.make extern/log/CMakeFiles/extern.dir/build
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f extern/log/CMakeFiles/extern.dir/build.make extern/log/CMakeFiles/extern.dir/build
 .PHONY : extern/fast
 
-#=============================================================================
-# Target rules for targets named commands
-
-# Build rule for target.
-commands: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 commands
-.PHONY : commands
-
-# fast build rule for target.
-commands/fast:
-	$(MAKE) $(MAKESILENT) -f src/commands/CMakeFiles/commands.dir/build.make src/commands/CMakeFiles/commands.dir/build
-.PHONY : commands/fast
-
-#=============================================================================
-# Target rules for targets named parser
-
-# Build rule for target.
-parser: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 parser
-.PHONY : parser
-
-# fast build rule for target.
-parser/fast:
-	$(MAKE) $(MAKESILENT) -f src/parser/CMakeFiles/parser.dir/build.make src/parser/CMakeFiles/parser.dir/build
-.PHONY : parser/fast
-
-#=============================================================================
-# Target rules for targets named util
-
-# Build rule for target.
-util: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 util
-.PHONY : util
-
-# fast build rule for target.
-util/fast:
-	$(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/build
-.PHONY : util/fast
-
-src/interpreter.o: src/interpreter.c.o
-.PHONY : src/interpreter.o
+log.o: log.c.o
+.PHONY : log.o
 
 # target to build an object file
-src/interpreter.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ByteGeist.dir/build.make CMakeFiles/ByteGeist.dir/src/interpreter.c.o
-.PHONY : src/interpreter.c.o
+log.c.o:
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f extern/log/CMakeFiles/extern.dir/build.make extern/log/CMakeFiles/extern.dir/log.c.o
+.PHONY : log.c.o
 
-src/interpreter.i: src/interpreter.c.i
-.PHONY : src/interpreter.i
+log.i: log.c.i
+.PHONY : log.i
 
 # target to preprocess a source file
-src/interpreter.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ByteGeist.dir/build.make CMakeFiles/ByteGeist.dir/src/interpreter.c.i
-.PHONY : src/interpreter.c.i
+log.c.i:
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f extern/log/CMakeFiles/extern.dir/build.make extern/log/CMakeFiles/extern.dir/log.c.i
+.PHONY : log.c.i
 
-src/interpreter.s: src/interpreter.c.s
-.PHONY : src/interpreter.s
+log.s: log.c.s
+.PHONY : log.s
 
 # target to generate assembly for a file
-src/interpreter.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ByteGeist.dir/build.make CMakeFiles/ByteGeist.dir/src/interpreter.c.s
-.PHONY : src/interpreter.c.s
+log.c.s:
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f extern/log/CMakeFiles/extern.dir/build.make extern/log/CMakeFiles/extern.dir/log.c.s
+.PHONY : log.c.s
 
 # Help Target
 help:
@@ -213,14 +162,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ByteGeist"
-	@echo "... commands"
 	@echo "... extern"
-	@echo "... parser"
-	@echo "... util"
-	@echo "... src/interpreter.o"
-	@echo "... src/interpreter.i"
-	@echo "... src/interpreter.s"
+	@echo "... log.o"
+	@echo "... log.i"
+	@echo "... log.s"
 .PHONY : help
 
 
@@ -232,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/jay/Projects/Byte_Geist/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

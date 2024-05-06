@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.29.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.29.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.29.2/CMakeSystem.cmake"
+  "/home/jay/Projects/Byte_Geist/extern/log/CMakeLists.txt"
   "/home/jay/Projects/Byte_Geist/src/commands/CMakeLists.txt"
   "/home/jay/Projects/Byte_Geist/src/parser/CMakeLists.txt"
   "/home/jay/Projects/Byte_Geist/src/util/CMakeLists.txt"
@@ -43,6 +44,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "extern/log/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/commands/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/parser/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/util/CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -51,6 +53,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ByteGeist.dir/DependInfo.cmake"
+  "extern/log/CMakeFiles/extern.dir/DependInfo.cmake"
   "src/commands/CMakeFiles/commands.dir/DependInfo.cmake"
   "src/parser/CMakeFiles/parser.dir/DependInfo.cmake"
   "src/util/CMakeFiles/util.dir/DependInfo.cmake"
