@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/commands.dir/commands.c.o"
   "CMakeFiles/commands.dir/commands.c.o.d"
+  "CMakeFiles/commands.dir/registers.c.o"
+  "CMakeFiles/commands.dir/registers.c.o.d"
   "libcommands.a"
   "libcommands.pdb"
 )

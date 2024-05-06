@@ -83,17 +83,33 @@ src/commands/CMakeFiles/commands.dir/commands.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/commands.dir/commands.c.s"
 	cd /home/jay/Projects/Byte_Geist/build/src/commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jay/Projects/Byte_Geist/src/commands/commands.c -o CMakeFiles/commands.dir/commands.c.s
 
+src/commands/CMakeFiles/commands.dir/registers.c.o: src/commands/CMakeFiles/commands.dir/flags.make
+src/commands/CMakeFiles/commands.dir/registers.c.o: /home/jay/Projects/Byte_Geist/src/commands/registers.c
+src/commands/CMakeFiles/commands.dir/registers.c.o: src/commands/CMakeFiles/commands.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jay/Projects/Byte_Geist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/commands/CMakeFiles/commands.dir/registers.c.o"
+	cd /home/jay/Projects/Byte_Geist/build/src/commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/commands/CMakeFiles/commands.dir/registers.c.o -MF CMakeFiles/commands.dir/registers.c.o.d -o CMakeFiles/commands.dir/registers.c.o -c /home/jay/Projects/Byte_Geist/src/commands/registers.c
+
+src/commands/CMakeFiles/commands.dir/registers.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/commands.dir/registers.c.i"
+	cd /home/jay/Projects/Byte_Geist/build/src/commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jay/Projects/Byte_Geist/src/commands/registers.c > CMakeFiles/commands.dir/registers.c.i
+
+src/commands/CMakeFiles/commands.dir/registers.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/commands.dir/registers.c.s"
+	cd /home/jay/Projects/Byte_Geist/build/src/commands && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jay/Projects/Byte_Geist/src/commands/registers.c -o CMakeFiles/commands.dir/registers.c.s
+
 # Object files for target commands
 commands_OBJECTS = \
-"CMakeFiles/commands.dir/commands.c.o"
+"CMakeFiles/commands.dir/commands.c.o" \
+"CMakeFiles/commands.dir/registers.c.o"
 
 # External object files for target commands
 commands_EXTERNAL_OBJECTS =
 
 src/commands/libcommands.a: src/commands/CMakeFiles/commands.dir/commands.c.o
+src/commands/libcommands.a: src/commands/CMakeFiles/commands.dir/registers.c.o
 src/commands/libcommands.a: src/commands/CMakeFiles/commands.dir/build.make
 src/commands/libcommands.a: src/commands/CMakeFiles/commands.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jay/Projects/Byte_Geist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libcommands.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jay/Projects/Byte_Geist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library libcommands.a"
 	cd /home/jay/Projects/Byte_Geist/build/src/commands && $(CMAKE_COMMAND) -P CMakeFiles/commands.dir/cmake_clean_target.cmake
 	cd /home/jay/Projects/Byte_Geist/build/src/commands && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/commands.dir/link.txt --verbose=$(VERBOSE)
 

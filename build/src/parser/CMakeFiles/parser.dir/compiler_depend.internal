@@ -3,6 +3,7 @@
 
 src/parser/CMakeFiles/parser.dir/parser.c.o
  /home/jay/Projects/Byte_Geist/src/parser/parser.c
+ /home/jay/Projects/Byte_Geist/src/commands/registers.h
  /home/jay/Projects/Byte_Geist/src/parser/token.h
  /usr/include/alloca.h
  /usr/include/bits/atomic_wide_counter.h
@@ -47,6 +48,7 @@ src/parser/CMakeFiles/parser.dir/parser.c.o
  /usr/include/bits/waitflags.h
  /usr/include/bits/waitstatus.h
  /usr/include/bits/wordsize.h
+ /usr/include/ctype.h
  /usr/include/endian.h
  /usr/include/features-time64.h
  /usr/include/features.h

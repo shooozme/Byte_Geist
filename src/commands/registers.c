@@ -1,22 +1,21 @@
-#define REGSIZE 16
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-static unsigned REG[REGSIZE];
+#define REGSIZE 16
 
 //#define REG(REGNUMBER) (Reg[REGNUMBER])
 
 unsigned int isRegisterValid(char *regName);
 unsigned int* initRegister(char *regName);
 
-//Const array of all valid register names
-//should REG_0 always be zero?
-const char RegNames[REGSIZE][5] = {
+static char RegNames[REGSIZE][5] = {
     "REG_0", "REG_1", "REG_2", "REG_3", "REG_4", 
     "REG_5", "REG_6", "REG_7", "REG_8", "REG_9", 
     "REG10", "REG11", "REG12", "REG13", "REG14", 
     "REG15"};
 
 unsigned int isRegisterValid(char *regName) {
-
     for(int i = 0; i < REGSIZE; i++) {
         if(strcmp(RegNames[i], regName) == 0) {
             //a valid register has been entered return 1
@@ -38,9 +37,9 @@ unsigned int* initRegister(char *regName) {
     //the return integers properly!
     for(int i = 0; i < REGSIZE; i++) {
         if(strcmp(RegNames[i], regName) == 0) {
-            return i;
+            return &i;
         }
     }
     printf("Failed to intialize register!");
-    exist(-1);
+    exit(-1);
 }

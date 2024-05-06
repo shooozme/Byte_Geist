@@ -154,6 +154,30 @@ commands.c.s:
 	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/commands/CMakeFiles/commands.dir/build.make src/commands/CMakeFiles/commands.dir/commands.c.s
 .PHONY : commands.c.s
 
+registers.o: registers.c.o
+.PHONY : registers.o
+
+# target to build an object file
+registers.c.o:
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/commands/CMakeFiles/commands.dir/build.make src/commands/CMakeFiles/commands.dir/registers.c.o
+.PHONY : registers.c.o
+
+registers.i: registers.c.i
+.PHONY : registers.i
+
+# target to preprocess a source file
+registers.c.i:
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/commands/CMakeFiles/commands.dir/build.make src/commands/CMakeFiles/commands.dir/registers.c.i
+.PHONY : registers.c.i
+
+registers.s: registers.c.s
+.PHONY : registers.s
+
+# target to generate assembly for a file
+registers.c.s:
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/commands/CMakeFiles/commands.dir/build.make src/commands/CMakeFiles/commands.dir/registers.c.s
+.PHONY : registers.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -166,6 +190,9 @@ help:
 	@echo "... commands.o"
 	@echo "... commands.i"
 	@echo "... commands.s"
+	@echo "... registers.o"
+	@echo "... registers.i"
+	@echo "... registers.s"
 .PHONY : help
 
 

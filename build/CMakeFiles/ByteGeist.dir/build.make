@@ -92,8 +92,10 @@ ByteGeist_EXTERNAL_OBJECTS =
 
 ByteGeist: CMakeFiles/ByteGeist.dir/src/interpreter.c.o
 ByteGeist: CMakeFiles/ByteGeist.dir/build.make
+ByteGeist: src/util/libutil.a
 ByteGeist: src/commands/libcommands.a
 ByteGeist: src/parser/libparser.a
+ByteGeist: src/commands/libcommands.a
 ByteGeist: CMakeFiles/ByteGeist.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jay/Projects/Byte_Geist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable ByteGeist"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ByteGeist.dir/link.txt --verbose=$(VERBOSE)

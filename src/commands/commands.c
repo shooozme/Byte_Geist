@@ -3,9 +3,9 @@
 
 void ALLOCATE(char* regName, const unsigned int data) {
     //isRegisterValid acts as a guard clause
-    isRegistervalid(regName);
+    isRegisterValid(regName);
     //save the returned index from initRegister (returns the *address*)
-    unsigned int index = initRegister(regName);
+    unsigned int index = *initRegister(regName);
     //set the data in the relevant index!
     REG[index] = data;
 }

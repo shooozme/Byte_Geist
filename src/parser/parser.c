@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "token.h"
+#include "../commands/registers.h"
 
 int appendString(char* s, size_t size, char c);
 int clearString(char* s, size_t size);
@@ -10,8 +12,6 @@ int isOperator(char c);
 Token* getTokenIdentifier(char *s);
 
 Token* parseData(char *fileInput, size_t n) {
-    fscanf(fileInput, "%d", n);
-
     char* currentToken;
     Token* tokenList = malloc(sizeof(Token) * n);
 

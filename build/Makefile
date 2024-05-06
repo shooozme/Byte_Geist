@@ -156,17 +156,17 @@ parser/fast:
 .PHONY : parser/fast
 
 #=============================================================================
-# Target rules for targets named file
+# Target rules for targets named util
 
 # Build rule for target.
-file: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 file
-.PHONY : file
+util: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 util
+.PHONY : util
 
 # fast build rule for target.
-file/fast:
-	$(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/file.dir/build.make src/util/CMakeFiles/file.dir/build
-.PHONY : file/fast
+util/fast:
+	$(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/build
+.PHONY : util/fast
 
 src/interpreter.o: src/interpreter.c.o
 .PHONY : src/interpreter.o
@@ -202,8 +202,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ByteGeist"
 	@echo "... commands"
-	@echo "... file"
 	@echo "... parser"
+	@echo "... util"
 	@echo "... src/interpreter.o"
 	@echo "... src/interpreter.i"
 	@echo "... src/interpreter.s"

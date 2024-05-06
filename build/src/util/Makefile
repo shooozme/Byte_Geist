@@ -117,25 +117,25 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/util/CMakeFiles/file.dir/rule:
-	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/util/CMakeFiles/file.dir/rule
-.PHONY : src/util/CMakeFiles/file.dir/rule
+src/util/CMakeFiles/util.dir/rule:
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/util/CMakeFiles/util.dir/rule
+.PHONY : src/util/CMakeFiles/util.dir/rule
 
 # Convenience name for target.
-file: src/util/CMakeFiles/file.dir/rule
-.PHONY : file
+util: src/util/CMakeFiles/util.dir/rule
+.PHONY : util
 
 # fast build rule for target.
-file/fast:
-	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/file.dir/build.make src/util/CMakeFiles/file.dir/build
-.PHONY : file/fast
+util/fast:
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/build
+.PHONY : util/fast
 
 file.o: file.c.o
 .PHONY : file.o
 
 # target to build an object file
 file.c.o:
-	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/file.dir/build.make src/util/CMakeFiles/file.dir/file.c.o
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/file.c.o
 .PHONY : file.c.o
 
 file.i: file.c.i
@@ -143,7 +143,7 @@ file.i: file.c.i
 
 # target to preprocess a source file
 file.c.i:
-	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/file.dir/build.make src/util/CMakeFiles/file.dir/file.c.i
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/file.c.i
 .PHONY : file.c.i
 
 file.s: file.c.s
@@ -151,7 +151,7 @@ file.s: file.c.s
 
 # target to generate assembly for a file
 file.c.s:
-	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/file.dir/build.make src/util/CMakeFiles/file.dir/file.c.s
+	cd /home/jay/Projects/Byte_Geist/build && $(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/file.c.s
 .PHONY : file.c.s
 
 # Help Target
@@ -162,7 +162,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... file"
+	@echo "... util"
 	@echo "... file.o"
 	@echo "... file.i"
 	@echo "... file.s"

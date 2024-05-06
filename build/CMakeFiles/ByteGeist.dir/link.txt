@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/ByteGeist.dir/src/interpreter.c.o -o ByteGeist  src/commands/libcommands.a src/parser/libparser.a -lutil
+/usr/bin/cc CMakeFiles/ByteGeist.dir/src/interpreter.c.o -o ByteGeist  src/util/libutil.a src/commands/libcommands.a src/parser/libparser.a src/commands/libcommands.a

@@ -1,6 +1,3 @@
-#[-- Make sure to add all *working* source files here. --]
-
-set(SOURCE_FILES parser.c token.c)
-set(HEADER_FILES parser.h token.h)
-
-add_library(parser ${SOURCE_FILES} ${HEADER_FILES})
+file(GLOB SOURCES "*.c" "*.h")
+add_library(parser STATIC ${SOURCES})
+target_link_libraries(parser PRIVATE commands)

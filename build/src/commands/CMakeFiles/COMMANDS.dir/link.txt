@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libCOMMANDS.so -o libCOMMANDS.so CMakeFiles/COMMANDS.dir/commands.c.o CMakeFiles/COMMANDS.dir/registers.c.o

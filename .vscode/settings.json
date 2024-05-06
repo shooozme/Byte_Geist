@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "token.h": "c",
-        "file.h": "c"
+        "file.h": "c",
+        "registers.h": "c"
     }
 }

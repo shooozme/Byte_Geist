@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jay/Projects/Byte_Geist/src/commands/commands.c" "src/commands/CMakeFiles/commands.dir/commands.c.o" "gcc" "src/commands/CMakeFiles/commands.dir/commands.c.o.d"
-  "/home/jay/Projects/Byte_Geist/src/commands/registers.c" "src/commands/CMakeFiles/commands.dir/registers.c.o" "gcc" "src/commands/CMakeFiles/commands.dir/registers.c.o.d"
+  "/home/jay/Projects/Byte_Geist/src/commands/commands.c" "src/commands/CMakeFiles/COMMANDS.dir/commands.c.o" "gcc" "src/commands/CMakeFiles/COMMANDS.dir/commands.c.o.d"
+  "/home/jay/Projects/Byte_Geist/src/commands/registers.c" "src/commands/CMakeFiles/COMMANDS.dir/registers.c.o" "gcc" "src/commands/CMakeFiles/COMMANDS.dir/registers.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

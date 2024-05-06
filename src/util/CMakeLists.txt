@@ -1,4 +1,2 @@
-set(SOURCE_FILES file.c)
-set(HEADER_FILES file.h)
-
-add_library(file ${SOURCE_FILES} ${HEADER_FILES})
+file(GLOB SOURCES "*.c" "*.h")
+add_library(util STATIC ${SOURCES})

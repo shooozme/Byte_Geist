@@ -53,5 +53,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ByteGeist.dir/DependInfo.cmake"
   "src/commands/CMakeFiles/commands.dir/DependInfo.cmake"
   "src/parser/CMakeFiles/parser.dir/DependInfo.cmake"
-  "src/util/CMakeFiles/file.dir/DependInfo.cmake"
+  "src/util/CMakeFiles/util.dir/DependInfo.cmake"
   )
