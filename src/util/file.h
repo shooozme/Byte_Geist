@@ -1,0 +1,1 @@
+char* openFile(char* filename);

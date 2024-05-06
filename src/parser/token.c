@@ -6,6 +6,5 @@ Token* NewToken(TokenType type, int numberLiteral, char op, char *identifier, ch
     token->numberLiteral = numberLiteral;
     token->op = op;
     token->identifier = identifier;
-    token->stringLiteral = stringLiteral;
     return token;
 }

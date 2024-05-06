@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <parser.c>
 
 void ALLOCATE(char *REG, const unsigned int data) {
     //isRegisterValid acts as a guard clause
@@ -11,6 +10,7 @@ void DELETE() {
 
 }
 
+//does add need a third parameter to act as a destination register?
 int ADD(char *REG1, char *REG2) {
 
 }

@@ -1,3 +1,5 @@
+#pragma once
+
 typedef enum {
     TOKEN_MAGIC,
     TOKEN_ALLOCATE,
@@ -7,7 +9,7 @@ typedef enum {
     TOKEN_LEFT_BRACE,
     TOKEN_RIGHT_BRACE,
     TOKEN_NEWLINE,
-    TOKEN_END,
+    TOKEN_EOF,
 } TokenType;
 
 typedef struct {
@@ -15,7 +17,6 @@ typedef struct {
     int numberLiteral;
     char op;
     char *identifier;
-    char *stringLiteral;
 } Token;
 
 Token* NewToken(TokenType type, int numberLiteral, char op, char *identifier, char *stringLiteral);
