@@ -1,0 +1,3 @@
+/home/jay/Projects/Byte_Geist/CMakeFiles/ByteGeist.dir
+/home/jay/Projects/Byte_Geist/CMakeFiles/edit_cache.dir
+/home/jay/Projects/Byte_Geist/CMakeFiles/rebuild_cache.dir
