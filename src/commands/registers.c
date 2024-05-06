@@ -21,6 +21,7 @@ unsigned int isRegisterValid(char *regName) {
             //a valid register has been entered return 1
             return 1;
         } else {
+            printf("Register is not valid %s", regName);
             return 0;
         }
     }
