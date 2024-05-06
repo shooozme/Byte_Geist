@@ -5,6 +5,9 @@
 
 #define REGSIZE 16
 
+//static unsigned REG[REGSIZE];
+#define REGARR (Reg[REGSIZE])
+
 //Const array of all valid register names
 //should REG_0 always be zero?
 const char RegNames[REGSIZE][5] = {
@@ -59,4 +62,11 @@ unsigned int isRegisterValid(char *regName) {
             exit(-1);
         }
     }
+}
+
+unsigned int initRegister(char *regName) {
+    
+    if(isRegisterValid(regName)) {
+        return //the register
+    } 
 }
