@@ -1,0 +1,16 @@
+{
+    "version": "0.2",
+    "configurations": [
+        {
+            "name": "Build and Run Hello World",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/ByteGeist", 
+            "args": [
+                "${workspaceFolder}/test/hello_world.im" 
+            ],
+            "cwd": "${workspaceFolder}/build",
+            "preLaunchTask": "build"
+        }
+    ]
+}
