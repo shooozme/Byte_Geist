@@ -1,10 +1,10 @@
 #include "token.h"
 
-Token* NewToken(TokenType type, int numberLiteral, char op, char *identifier, char *stringLiteral) {
+Token* NewToken(TokenType type, int numberLiteral, char op, char *reserved) {
     Token* token = malloc(sizeof(Token));
     token->type = type;
     token->numberLiteral = numberLiteral;
     token->operator = op;
-    token->identifier = identifier;
+    token->reserved = reserved;
     return token;
 }

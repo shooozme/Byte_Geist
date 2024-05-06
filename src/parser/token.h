@@ -16,7 +16,7 @@ typedef struct {
     TokenType type;
     int numberLiteral;
     char operator;
-    char *identifier;
+    char *reserved;
 } Token;
 
-Token* NewToken(TokenType type, int numberLiteral, char op, char *identifier, char *stringLiteral);
+Token* NewToken(TokenType type, int numberLiteral, char op, char *reserved);

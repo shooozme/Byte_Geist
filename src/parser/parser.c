@@ -18,30 +18,31 @@ Token* parseData(char *fileInput, size_t n) {
 
     char currentToken[256]; 
     Token* tokenList = malloc(n * sizeof(Token)); 
+    size_t tokensFound = 0;
 
     for (size_t i = 0; i < n; i++) {
         if (fileInput[i] == '[') {
-            tokenList[i] = *NewToken(TOKEN_LEFT_BRACE, 0, 0, NULL, NULL);
+            tokenList[i] = *NewToken(TOKEN_LEFT_BRACE, 0, 0, NULL);
         }
         else if (fileInput[i] == ']') {
             // Number literals can only exist within braces. Check to see if the current token is a number literal.
             if (isStringNumeric(currentToken)) {
                 // todo: we should check if this numeric literal doesn't go beyond the bounds of 8 bytes.
-                tokenList[i] = *NewToken(TOKEN_NUMBER_LITERAL, atoi(currentToken), 0, NULL, NULL);
+                tokenList[i] = *NewToken(TOKEN_NUMBER_LITERAL, atoi(currentToken), 0, NULL);
                 clearString(currentToken, sizeof(currentToken));
             }
 
-            tokenList[i] = *NewToken(TOKEN_RIGHT_BRACE, 0, 0, NULL, NULL);
+            tokenList[i] = *NewToken(TOKEN_RIGHT_BRACE, 0, 0, NULL);
         }
         else if (fileInput[i] == '\n') {
-            tokenList[i] = *NewToken(TOKEN_NEWLINE, 0, 0, NULL, NULL);
+            tokenList[i] = *NewToken(TOKEN_NEWLINE, 0, 0, NULL);
         }
         else if (isOperator(fileInput[i])) {
-            tokenList[i] = *NewToken(TOKEN_OPERATOR, 0, fileInput[i], NULL, NULL);
+            tokenList[i] = *NewToken(TOKEN_OPERATOR, 0, fileInput[i], NULL);
         }
         else {
             if (isRegisterValid(currentToken)) {
-                tokenList[i] = *NewToken(TOKEN_REGISTER, 0, 0, currentToken, NULL);
+                tokenList[i] = *NewToken(TOKEN_REGISTER, 0, 0, currentToken);
                 clearString(currentToken, sizeof(currentToken));
             }
             
@@ -51,18 +52,19 @@ Token* parseData(char *fileInput, size_t n) {
             if (token != NULL) {
                 tokenList[i] = *token;
     
-                printf("Token %zu: Type=%d, Value=%d, Operator=%c, Register=%s\n",
-                    i, tokenList[i].type, tokenList[i].numberLiteral, tokenList[i].operator, tokenList[i].identifier);
+                tokensFound++;
+                printf("Token %zu: Type=%d, Value=%d, Operator=%c, Reserved=%s\n",
+                    tokensFound, tokenList[i].type, tokenList[i].numberLiteral, tokenList[i].operator, tokenList[i].reserved);
 
                 clearString(currentToken, sizeof(currentToken));
             }
 
-            // If we can't find a token for this, keep searching.
             continue;
         }  
 
-        printf("Token %zu: Type=%d, Value=%d, Operator=%c, Register=%s\n",
-               i, tokenList[i].type, tokenList[i].numberLiteral, tokenList[i].operator, tokenList[i].identifier);  
+        tokensFound++;
+        printf("Token %zu: Type=%d, Value=%d, Operator=%c, Reserved=%s\n",
+               tokensFound, tokenList[i].type, tokenList[i].numberLiteral, tokenList[i].operator, tokenList[i].reserved);  
     }
     
     return tokenList;
@@ -106,10 +108,10 @@ int isOperator(char c) {
 
 Token* getTokenIdentifier(char *s) {
     if (strcmp(s, "ALLOC") == 0) {
-        return NewToken(TOKEN_ALLOCATE, 0, 0, NULL, NULL);
+        return NewToken(TOKEN_ALLOCATE, 0, 0, "ALLOC");
     }
     else if (strcmp(s, "instructions") == 0) {
-        return NewToken(TOKEN_MAGIC, 0, 0, NULL, NULL);
+        return NewToken(TOKEN_MAGIC, 0, 0, "MAGIC");
     }
     else {
         return NULL;
