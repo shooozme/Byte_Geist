@@ -14,7 +14,6 @@ void DELETE(char* regName) {
     //function needs to clean out and delete the requested register
 }
 
-//does add need a third parameter to act as a destination register?
 //three parameters which are all registers
 int ADD(char* regA, char* regB, char* regResult) {
     //isRegisterValid acts as a guard clause
@@ -22,12 +21,12 @@ int ADD(char* regA, char* regB, char* regResult) {
     isRegisterValid(regB);
     isRegisterValid(regResult);
     
-    //returns the address of each pass register!
+    //returns the address of each passed register!
     int A = *initRegister(A);
     int B = *initRegister(B);
     int result = *initRegister(regResult);
 
-    //does simply edition with the registers
+    //does simple addition with the registers
     result = REG[A] + REG[B];
     return result;
 }
