@@ -10,13 +10,18 @@ typedef enum {
     TOKEN_RIGHT_BRACE    = 6,
     TOKEN_NEWLINE        = 7,
     TOKEN_EOF            = 8,
+    TOKEN_WHITESPACE     = 9,
+    TOKEN_AS             = 10,
+    TOKEN_FREE           = 11,
 } TokenType;
 
 typedef struct {
     TokenType type;
-    int numberLiteral;
-    char operator;
-    char *reserved;
+    union {
+        int numberLiteral;
+        char operator;
+        char *reserved;
+    };
 } Token;
 
 Token* NewToken(TokenType type, int numberLiteral, char op, char *reserved);

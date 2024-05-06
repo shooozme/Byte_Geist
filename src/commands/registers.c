@@ -15,16 +15,15 @@ static char RegNames[REGSIZE][5] = {
     "REG10", "REG11", "REG12", "REG13", "REG14", 
     "REG15"};
 
+    
 unsigned int isRegisterValid(char *regName) {
     for(int i = 0; i < REGSIZE; i++) {
-        if(strcmp(RegNames[i], regName) == 0) {
-            //a valid register has been entered return 1
+        if(strncmp(RegNames[i], regName, 5) == 0) { 
             return 1;
-        } else {
-            printf("Register is not valid %s", regName);
-            return 0;
         }
     }
+
+    return 0;
 }
 
 unsigned int* initRegister(char *regName) {

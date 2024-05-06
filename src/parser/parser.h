@@ -2,4 +2,6 @@
 
 #include "token.h"
 
-Token* parseData(char* fileInput, size_t n);
+/// @brief Parse the data from the file input.
+/// @param fileInput The file input to parse.
+Token* parseData(char* fileInput);

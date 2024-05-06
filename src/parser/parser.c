@@ -4,69 +4,62 @@
 #include <ctype.h>
 #include "token.h"
 #include "../commands/registers.h"
+#include "../../extern/log/log.h"
+
+#define MAX_TOKENS 1024
+#define MAX_TOKEN_SIZE 256
 
 int appendString(char* s, size_t size, char c);
-int clearString(char* s, size_t size);
 int isStringNumeric(char *s);
-int isOperator(char c);
-Token* getTokenIdentifier(char *s);
+Token* getReservedKeyword(char *s);
 
-Token* parseData(char *fileInput, size_t n) {
-    printf("Parsing data\n");
-    printf("File input length: %zu\n", n);
-    printf("File input: ```\n%s\n```\n\n", fileInput);
+Token* parseData(char *fileInput) {
+    Token* tokenList = malloc(MAX_TOKENS * sizeof(Token));
 
-    char currentToken[256]; 
-    Token* tokenList = malloc(n * sizeof(Token)); 
-    size_t tokensFound = 0;
+    char currentToken[MAX_TOKEN_SIZE];
+    memset(currentToken, 0, sizeof(currentToken));
 
-    for (size_t i = 0; i < n; i++) {
-        if (fileInput[i] == '[') {
-            tokenList[i] = *NewToken(TOKEN_LEFT_BRACE, 0, 0, NULL);
+    for (size_t i = 0; fileInput[i] != '\0'; i++) {
+        switch (fileInput[i]) {
+            case '[':
+                tokenList[i] = *NewToken(TOKEN_LEFT_BRACE, 0, 0, NULL);
+                break;
+            case ']':
+                tokenList[i] = *NewToken(TOKEN_RIGHT_BRACE, 0, 0, NULL);
+                memset(currentToken, 0, sizeof(currentToken));
+                break;
+            case '\n':
+                tokenList[i] = *NewToken(TOKEN_NEWLINE, 0, 0, NULL);
+                break;
+            case ' ':
+                tokenList[i] = *NewToken(TOKEN_WHITESPACE, 0, 0, NULL);
+                break;
+            case '+':
+            case '-':
+            case '*':
+            case '/':
+                tokenList[i] = *NewToken(TOKEN_OPERATOR, 0, fileInput[i], NULL);
+                break;
+            default:
+                // If we can't find any of the above characters, append each character to the current token until we find something.
+                appendString(currentToken, sizeof(currentToken), fileInput[i]);
+
+                Token* token = getReservedKeyword(currentToken);
+                if (token != NULL) {
+                    tokenList[i] = *token;
+                    memset(currentToken, 0, sizeof(currentToken));
+                }
+
+                if (fileInput[i + 1] == ']') {
+                    if (isStringNumeric(currentToken)) {
+                        tokenList[i] = *NewToken(TOKEN_NUMBER_LITERAL, atoi(currentToken), 0, NULL);
+                    }
+                }
+                break;
         }
-        else if (fileInput[i] == ']') {
-            // Number literals can only exist within braces. Check to see if the current token is a number literal.
-            if (isStringNumeric(currentToken)) {
-                // todo: we should check if this numeric literal doesn't go beyond the bounds of 8 bytes.
-                tokenList[i] = *NewToken(TOKEN_NUMBER_LITERAL, atoi(currentToken), 0, NULL);
-                clearString(currentToken, sizeof(currentToken));
-            }
-
-            tokenList[i] = *NewToken(TOKEN_RIGHT_BRACE, 0, 0, NULL);
-        }
-        else if (fileInput[i] == '\n') {
-            tokenList[i] = *NewToken(TOKEN_NEWLINE, 0, 0, NULL);
-        }
-        else if (isOperator(fileInput[i])) {
-            tokenList[i] = *NewToken(TOKEN_OPERATOR, 0, fileInput[i], NULL);
-        }
-        else {
-            if (isRegisterValid(currentToken)) {
-                tokenList[i] = *NewToken(TOKEN_REGISTER, 0, 0, currentToken);
-                clearString(currentToken, sizeof(currentToken));
-            }
-            
-            appendString(currentToken, sizeof(currentToken), fileInput[i]);
-
-            Token* token = getTokenIdentifier(currentToken);
-            if (token != NULL) {
-                tokenList[i] = *token;
-    
-                tokensFound++;
-                printf("Token %zu: Type=%d, Value=%d, Operator=%c, Reserved=%s\n",
-                    tokensFound, tokenList[i].type, tokenList[i].numberLiteral, tokenList[i].operator, tokenList[i].reserved);
-
-                clearString(currentToken, sizeof(currentToken));
-            }
-
-            continue;
-        }  
-
-        tokensFound++;
-        printf("Token %zu: Type=%d, Value=%d, Operator=%c, Reserved=%s\n",
-               tokensFound, tokenList[i].type, tokenList[i].numberLiteral, tokenList[i].operator, tokenList[i].reserved);  
     }
-    
+
+    tokenList[MAX_TOKENS - 1] = *NewToken(TOKEN_EOF, 0, 0, NULL);
     return tokenList;
 }
 
@@ -80,14 +73,6 @@ int appendString(char* s, size_t size, char c) {
     return 0;
 }
 
-int clearString(char* s, size_t size) {
-    for (int i = 0; i < size; i++) {
-        s[i] = '\0';
-    }
-
-    return 0;
-}
-
 int isStringNumeric(char *s) {
     for (int i = 0; i < strlen(s); i++) {
         if (!isdigit(s[i])) {
@@ -98,20 +83,21 @@ int isStringNumeric(char *s) {
     return 1;
 }
 
-int isOperator(char c) {
-    if (c == '+' || c == '-' || c == '*' || c == '/') {
-        return 1;
-    }
-
-    return 0;
-}
-
-Token* getTokenIdentifier(char *s) {
+Token* getReservedKeyword(char *s) {
     if (strcmp(s, "ALLOC") == 0) {
         return NewToken(TOKEN_ALLOCATE, 0, 0, "ALLOC");
     }
     else if (strcmp(s, "instructions") == 0) {
         return NewToken(TOKEN_MAGIC, 0, 0, "MAGIC");
+    }
+    else if (strcmp(s, "AS") == 0) {
+        return NewToken(TOKEN_AS, 0, 0, "AS");
+    }
+    else if (strcmp(s, "FREE") == 0) {
+        return NewToken(TOKEN_FREE, 0, 0, "FREE");
+    }
+    else if (isRegisterValid(s)) {
+        return NewToken(TOKEN_REGISTER, 0, 0, s);
     }
     else {
         return NULL;
