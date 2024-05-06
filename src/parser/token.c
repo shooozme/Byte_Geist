@@ -4,7 +4,7 @@ Token* NewToken(TokenType type, int numberLiteral, char op, char *identifier, ch
     Token* token = malloc(sizeof(Token));
     token->type = type;
     token->numberLiteral = numberLiteral;
-    token->op = op;
+    token->operator = op;
     token->identifier = identifier;
     return token;
 }

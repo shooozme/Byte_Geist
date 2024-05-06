@@ -21,9 +21,7 @@ unsigned int isRegisterValid(char *regName) {
             //a valid register has been entered return 1
             return 1;
         } else {
-            //a nonvalid register has been entered in the file spit out the name, and exit!
-            printf("A nonvalid register has been entered %s", regName);
-            exit(-1);
+            return 0;
         }
     }
 }
