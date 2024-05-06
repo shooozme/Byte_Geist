@@ -1,11 +1,20 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(ByteGeist)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+message(STATUS "CMake version: ${CMAKE_VERSION}")
+message(STATUS "CMake system name: ${CMAKE_SYSTEM_NAME}")
+message(STATUS "CMake system processor: ${CMAKE_SYSTEM_PROCESSOR}")
+message(STATUS "CMake source directory: ${CMAKE_SOURCE_DIR}")
 
-set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set(SOURCE_DIRS
+    src/commands
+    src/parser
+    src/util
+)
 
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
-add_executable(ByteGeist ${SOURCE_DIR}/interpreter.c)
+foreach(DIR ${SOURCE_DIRS})
+    add_subdirectory(${DIR})
+endforeach(DIR)
+
+add_executable(ByteGeist src/interpreter.c)
+target_link_libraries(ByteGeist commands parser util)

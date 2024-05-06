@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "stdio.h": "c"
+        "token.h": "c",
+        "file.h": "c"
     }
 }
