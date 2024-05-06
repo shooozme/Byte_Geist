@@ -1,6 +1,6 @@
 #define REGSIZE 16
 
-//static unsigned REG[REGSIZE];
+static unsigned REG[REGSIZE];
 #define REG(REGNUMBER) (Reg[REGNUMBER])
 
 //Const array of all valid register names
@@ -26,7 +26,7 @@ unsigned int isRegisterValid(char *regName) {
 }
 
 //#define REG(REGNUMBER) (Reg[REGNUMBER])
-unsigned int initRegister(char *regName, unsigned REG) {
+unsigned int initRegister(char *regName) {
     //does is Register valid exit the initRegister function?
     isRegisterValid(regName);
 
@@ -38,7 +38,9 @@ unsigned int initRegister(char *regName, unsigned REG) {
     for(int i = 0; i < REGSIZE; i++) {
         if(strcmp(RegNames[i], regName) == 0) {
             regIndex = i;
-            //*REG = regIndex;
+            return &REG[i];
         }
     }
+    printf("Failed to intialize register!");
+    return -1;
 }
