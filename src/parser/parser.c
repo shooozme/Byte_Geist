@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "token.h"
+
+int appendString(char* s, size_t size, char c);
+int clearString(char* s, size_t size);
+int isStringNumeric(char *s);
+int isOperator(char c);
+Token* getTokenIdentifier(char *s);
 
 Token* parseData(char *fileInput, size_t n) {
     fscanf(fileInput, "%d", n);

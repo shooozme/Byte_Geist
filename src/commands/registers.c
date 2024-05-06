@@ -1,7 +1,11 @@
 #define REGSIZE 16
 
 static unsigned REG[REGSIZE];
-#define REG(REGNUMBER) (Reg[REGNUMBER])
+
+//#define REG(REGNUMBER) (Reg[REGNUMBER])
+
+unsigned int isRegisterValid(char *regName);
+unsigned int* initRegister(char *regName);
 
 //Const array of all valid register names
 //should REG_0 always be zero?
@@ -25,22 +29,18 @@ unsigned int isRegisterValid(char *regName) {
     }
 }
 
-//#define REG(REGNUMBER) (Reg[REGNUMBER])
-unsigned int initRegister(char *regName) {
+unsigned int* initRegister(char *regName) {
     //does is Register valid exit the initRegister function?
     isRegisterValid(regName);
-
-    //go through the array, find the correct register name matching, and determine the index number
-    //then that number needs to be passed to the preprocessor macro in order to initialize the correct 
-    //register
-    int regIndex = -1;
-
+    //go through the array and find the matching string in RegNames[]
+    //once found return the i at that number [0-15], this effecitvely gives us
+    //our *address*, any function that calls initRegister must handle
+    //the return integers properly!
     for(int i = 0; i < REGSIZE; i++) {
         if(strcmp(RegNames[i], regName) == 0) {
-            regIndex = i;
-            return &REG[i];
+            return i;
         }
     }
     printf("Failed to intialize register!");
-    return -1;
+    exist(-1);
 }
