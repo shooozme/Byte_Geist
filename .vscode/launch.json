@@ -2,7 +2,7 @@
     "version": "0.2",
     "configurations": [
         {
-            "name": "Build and Run Hello World",
+            "name": "Build and Debug Hello World",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/ByteGeist", 
@@ -10,7 +10,16 @@
                 "${workspaceFolder}/test/hello_world.im" 
             ],
             "cwd": "${workspaceFolder}/build",
-            "preLaunchTask": "build"
+            "preLaunchTask": "build",
+            "MIMode": "gdb",
+            "externalConsole": false,
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
         }
     ]
 }

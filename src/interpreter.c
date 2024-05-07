@@ -41,7 +41,9 @@ int main(int argc, char *argv[]) {
 
 void printTokens(Token* tokenList) {
     size_t tokensFound = 0;
-    for (size_t i = 0; i < sizeof(tokenList); i++) {
+    size_t tokenListSize = sizeof(tokenList) / sizeof(Token);
+
+    for (size_t i = 0; i < tokenListSize; i++) {
         tokensFound++;
         log_info("Token %zu: Type=%d, Value=%d, Operator=%c, Reserved=%s",
             tokensFound, tokenList[i].type, tokenList[i].numberLiteral, tokenList[i].operator, tokenList[i].reserved);

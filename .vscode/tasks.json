@@ -13,7 +13,7 @@
                 "reveal": "silent",
                 "panel": "new"
             },
-            "problemMatcher": {
+            "problemMatcher": [{
                 "owner": "cpp",
                 "fileLocation": [
                     "absolute"
@@ -26,7 +26,7 @@
                     "severity": 4,
                     "message": 5
                 }
-            },
+            }],
             "options": {
                 "cwd": "${workspaceFolder}/build"
             }

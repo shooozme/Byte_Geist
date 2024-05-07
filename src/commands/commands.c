@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "registers.h"
 
-void ALLOCATE(char* regName, const unsigned int data) {
+void ALLOCATE(const char* regName, const unsigned int data) {
     //isRegisterValid acts as a guard clause
     if (isRegisterValid(regName)) {
         //save the returned index from initRegister (returns the *address*)
@@ -11,27 +11,49 @@ void ALLOCATE(char* regName, const unsigned int data) {
     }
 }
 
-void DELETE(char* regName) {
-    //function needs to clean out and delete the requested register
+void FREE(const char* regName) {
+    //function needs to clean out and FREE the requested register
+    //what do we set the freed register too? could do NULL or 0
+    if (isRegisterValid(regName)) {
+        unsigned int index = *initRegister(regName);
+        //effectively frees the register by resetting its value to 0
+        REG[index] = 0;
+    }
 }
 
 //three parameters which are all registers
-int ADD(char* regA, char* regB, char* regResult) {
+int ADD(const char* regA, const char* regB, const char* regResult) {
     //isRegisterValid acts as a guard clause
     if (isRegisterValid(regA) && isRegisterValid(regB) && isRegisterValid(regResult) )  {
         //returns the address of each passed register!
         //potentially unwanted pointer in initRegister and here!
-        int A = *initRegister(A);
-        int B = *initRegister(B);
-        int result = *initRegister(regResult);
-
+        unsigned int A = *initRegister(A);
+        unsigned int B = *initRegister(B);
+        unsigned int result = *initRegister(regResult);
+        
         //does simple addition with the registers
         result = REG[A] + REG[B];
         return result;
     }
 }
 
+//needs to handle negative numbers!
+int SUB(const char* regA, const char* regB, const char* regResult) {
+    if (isRegisterValid(regA) && isRegisterValid(regB) && isRegisterValid(regResult)) {
+        unsigned int A = *initRegister(A);
+        unsigned int B = *initRegister(B);
+        unsigned int result = *initRegister(regResult);
+        
+        //does simple subtraction with the registers
+        result = REG[A] - REG[B];
+        return result;
+    }
+}
 
-int SUB () {
+int MULT() {
+
+}
+
+int DIVIDE() {
 
 }

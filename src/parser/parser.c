@@ -60,6 +60,7 @@ Token* parseData(char *fileInput) {
     }
 
     tokenList[MAX_TOKENS - 1] = *NewToken(TOKEN_EOF, 0, 0, NULL);
+
     return tokenList;
 }
 
