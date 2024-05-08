@@ -62,6 +62,14 @@ int MULT(const char* regA, const char* regB, const char* regResult) {
     }
 }
 
-int DIVIDE() {
-
+int DIVIDE(const char* regA, const char* regB, const char* regResult) {
+    if (isRegisterValid(regA) && isRegister(regB) && isRegisterValid(regResult)) {
+        unsigned int A = *initRegister(A);
+        unsigned int B = * initRegister(A);
+        unsigned int result = *initRegister(regResult);
+    
+        //does divide
+        result = REG[A] / REG[B];
+        return result;
+    }
 }
