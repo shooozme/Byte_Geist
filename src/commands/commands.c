@@ -50,8 +50,16 @@ int SUB(const char* regA, const char* regB, const char* regResult) {
     }
 }
 
-int MULT() {
+int MULT(const char* regA, const char* regB, const char* regResult) {
+    if (isRegisterValid(regA) && isRegister(regB) && isRegisterValid(regResult)) {
+        unsigned int A = *initRegister(A);
+        unsigned int B = * initRegister(A);
+        unsigned int result = *initRegister(regResult);
 
+        //does multiplication 
+        result = REG[A] * REG[B];
+        return result;
+    }
 }
 
 int DIVIDE() {

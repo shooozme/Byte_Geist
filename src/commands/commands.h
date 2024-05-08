@@ -21,3 +21,10 @@ int ADD(const char* regA, const char* regB, const char* regResult);
 /// @param regB register B for performing arithmetic
 /// @param regResult register for storing result of arithmetic
 int SUB(const char* regA, const char* regB, const char* regResult);
+
+/// @brief  Performs multiplication using registers. Uses three seperate registers to do this! WIll eventually
+/// have a need to handle negative values but at this current time is unable to.
+/// @param regA register A for performing arithmetic
+/// @param regB register B for performing arithmetic
+/// @param regResult register for storing result of arithmetic
+int MULT(const char* regA, const char* regB, const char* regResult);
